@@ -6,13 +6,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="msapplication-tap-highlight" content="no">                
         <meta name="description" content="" />
-        <meta name="author" content="" />
+        <meta name="author" content="gustavosantos" />
         <script src="resources/js/jquery.min.js"></script>
         <!--<script src="resources/js/bootstrap.min.js"></script>-->
         <script src="resources/js/numeros.js"></script>        
         <link REL="SHORTCUT ICON" HREF="imagens/ICO.ico">    
-
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -27,124 +27,125 @@
         <link href="css/styles.css" rel="stylesheet" />
         <title>Trevo Supermercado 🍀</title>
 
-    </head>
-    <style>
-        .carousel-inner > .item > img,
-        .carousel-inner > .item > a > img {
-            /*width: 50%;*/
-            margin: auto;
-        }
+        <style>
+            .carousel-inner > .item > img,
+            .carousel-inner > .item > a > img {
+                /*width: 50%;*/
+                margin: auto;
+            }
 
-        .cookieConsentContainer{
-            z-index:999;
-            width:auto;
-            min-height:20px;
-            box-sizing:border-box;
-            padding:30px 300px 30px 30px;
-            background:#232323;
-            overflow:hidden;
-            position:fixed;
-            bottom:30px;
-            right:30px;
-            display:none
-        }
-        .cookieConsentContainer .cookieTitle a{
-            font-family:OpenSans,arial,sans-serif;
-            color:#fff;
-            font-size:22px;
-            line-height:20px;
-            display:block
-        }
-        .cookieConsentContainer .cookieDesc p{
-            margin:0;
-            padding:0;
-            font-family:OpenSans,arial,sans-serif;
-            color:#fff;
-            font-size:13px;
-            line-height:20px;
-            display:block;
-            margin-top:10px
-        }
-        .cookieConsentContainer .cookieDesc a{
-            font-family:OpenSans,arial,sans-serif;
-            color:#fff;
-            text-decoration:underline
-        }
-        .cookieConsentContainer .cookieButton a{
-            display:inline-block;
-            font-family:OpenSans,arial,sans-serif;
-            color:#fff;
-            font-size:12px;
-            font-weight:700;
-            margin-top:14px;
-            background:#000;
-            box-sizing:border-box;
-            padding:8px 12px;
-            text-align:center;
-            transition:background .3s
-        }
-        .cookieConsentContainer .cookieButton a:hover{
-            cursor:pointer;
-            background:#3e9b67
-        }
-        @media (max-width:980px){
             .cookieConsentContainer{
-                bottom:0!important;
-                left:0!important;
-                width:100%!important
+                z-index:999;
+                width:auto;
+                min-height:20px;
+                box-sizing:border-box;
+                padding:30px 300px 30px 30px;
+                background:#232323;
+                overflow:hidden;
+                position:fixed;
+                bottom:30px;
+                right:30px;
+                display:none
             }
-        }
-    </style>
-    <script>
-        var purecookieTitle = "Trevo Supermercado e os Cookies:", purecookieDesc = "A gente usa cookies para personalizar anúncios e melhorar a sua experiência no site. Ao continuar navegando, você concorda com a nossa ", purecookieLink = '<a href="#" target="_blank">Política de Privacidade.</a>', purecookieButton = "Continuar e Fechar?";
-        function pureFadeIn(e, o) {
-            var i = document.getElementById(e);
-            i.style.opacity = 0, i.style.display = o || "block", function e() {
-                var o = parseFloat(i.style.opacity);
-                (o += .02) > 1 || (i.style.opacity = o, requestAnimationFrame(e))
-            }()
-        }
-        function pureFadeOut(e) {
-            var o = document.getElementById(e);
-            o.style.opacity = 1, function e() {
-                (o.style.opacity -= .02) < 0 ? o.style.display = "none" : requestAnimationFrame(e)
-            }()
-        }
-        function setCookie(e, o, i) {
-            var t = "";
-            if (i) {
-                var n = new Date;
-                n.setTime(n.getTime() + 24 * i * 60 * 60 * 1e3), t = "; expires=" + n.toUTCString()
+            .cookieConsentContainer .cookieTitle a{
+                font-family:OpenSans,arial,sans-serif;
+                color:#fff;
+                font-size:22px;
+                line-height:20px;
+                display:block
             }
-            document.cookie = e + "=" + (o || "") + t + "; path=/"
-        }
-        function getCookie(e) {
-            for (var o = e + "=", i = document.cookie.split(";"), t = 0; t < i.length; t++) {
-                for (var n = i[t]; " " == n.charAt(0); )
-                    n = n.substring(1, n.length);
-                if (0 == n.indexOf(o))
-                    return n.substring(o.length, n.length)
+            .cookieConsentContainer .cookieDesc p{
+                margin:0;
+                padding:0;
+                font-family:OpenSans,arial,sans-serif;
+                color:#fff;
+                font-size:13px;
+                line-height:20px;
+                display:block;
+                margin-top:10px
             }
-            return null
-        }
-        function eraseCookie(e) {
-            document.cookie = e + "=; Max-Age=-99999999;"
-        }
-        function cookieConsent() {
-            getCookie("purecookieDismiss") || (document.body.innerHTML += '<div class="cookieConsentContainer" id="cookieConsentContainer"><div class="cookieTitle"><a>' + purecookieTitle + '</a></div><div class="cookieDesc"><p>' + purecookieDesc + " " + purecookieLink + '</p></div><div class="cookieButton"><a onClick="purecookieDismiss();">' + purecookieButton + "</a></div></div>", pureFadeIn("cookieConsentContainer"))
-        }
-        function purecookieDismiss() {
-            setCookie("purecookieDismiss", "1", 7), pureFadeOut("cookieConsentContainer") //Número de dias que o cookie expira, ou seja, depois de 7 dias o aviso é exibido novamente para o usuário que voltar ao site
-        }
-        window.onload = function () {
-            cookieConsent()
-        };
-//        window.onload = cookieConsent();  //OBS Se der problemas de compatibilidade com outros códigos alterar para esse!
+            .cookieConsentContainer .cookieDesc a{
+                font-family:OpenSans,arial,sans-serif;
+                color:#fff;
+                text-decoration:underline
+            }
+            .cookieConsentContainer .cookieButton a{
+                display:inline-block;
+                font-family:OpenSans,arial,sans-serif;
+                color:#fff;
+                font-size:12px;
+                font-weight:700;
+                margin-top:14px;
+                background:#000;
+                box-sizing:border-box;
+                padding:8px 12px;
+                text-align:center;
+                transition:background .3s
+            }
+            .cookieConsentContainer .cookieButton a:hover{
+                cursor:pointer;
+                background:#3e9b67
+            }
+            @media (max-width:980px){
+                .cookieConsentContainer{
+                    bottom:0!important;
+                    left:0!important;
+                    width:100%!important
+                }
+            }
+        </style>
+        <script>
+            var purecookieTitle = "Trevo Supermercado e os Cookies:", purecookieDesc = "A gente usa cookies para personalizar anúncios e melhorar a sua experiência no site. Ao continuar navegando, você concorda com a nossa ", purecookieLink = '<a href="#" target="_blank">Política de Privacidade.</a>', purecookieButton = "Continuar e Fechar?";
+            function pureFadeIn(e, o) {
+                var i = document.getElementById(e);
+                i.style.opacity = 0, i.style.display = o || "block", function e() {
+                    var o = parseFloat(i.style.opacity);
+                    (o += .02) > 1 || (i.style.opacity = o, requestAnimationFrame(e))
+                }()
+            }
+            function pureFadeOut(e) {
+                var o = document.getElementById(e);
+                o.style.opacity = 1, function e() {
+                    (o.style.opacity -= .02) < 0 ? o.style.display = "none" : requestAnimationFrame(e)
+                }()
+            }
+            function setCookie(e, o, i) {
+                var t = "";
+                if (i) {
+                    var n = new Date;
+                    n.setTime(n.getTime() + 24 * i * 60 * 60 * 1e3), t = "; expires=" + n.toUTCString()
+                }
+                document.cookie = e + "=" + (o || "") + t + "; path=/"
+            }
+            function getCookie(e) {
+                for (var o = e + "=", i = document.cookie.split(";"), t = 0; t < i.length; t++) {
+                    for (var n = i[t]; " " == n.charAt(0); )
+                        n = n.substring(1, n.length);
+                    if (0 == n.indexOf(o))
+                        return n.substring(o.length, n.length)
+                }
+                return null
+            }
+            function eraseCookie(e) {
+                document.cookie = e + "=; Max-Age=-99999999;"
+            }
+            function cookieConsent() {
+                getCookie("purecookieDismiss") || (document.body.innerHTML += '<div class="cookieConsentContainer" id="cookieConsentContainer"><div class="cookieTitle"><a>' + purecookieTitle + '</a></div><div class="cookieDesc"><p>' + purecookieDesc + " " + purecookieLink + '</p></div><div class="cookieButton"><a onClick="purecookieDismiss();">' + purecookieButton + "</a></div></div>", pureFadeIn("cookieConsentContainer"))
+            }
+            function purecookieDismiss() {
+                setCookie("purecookieDismiss", "1", 7), pureFadeOut("cookieConsentContainer") //Número de dias que o cookie expira, ou seja, depois de 7 dias o aviso é exibido novamente para o usuário que voltar ao site
+            }
+            window.onload = function () {
+                cookieConsent()
+            };
+            //        window.onload = cookieConsent();  //OBS Se der problemas de compatibilidade com outros códigos alterar para esse!
 
-        $(document).ready(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
+            $(document).ready(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+        </script>
+    </head>
+
     <body id="inicio">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-success text-uppercase fixed-top" id="mainNav">
@@ -160,13 +161,14 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#inicio">Início</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#produtos">Produtos</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#apresentacao">Quem Somos</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#trabalheconosco">Trabalhe Conosco</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contato">Contato</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead  text-white text-center"> <!--bg-primary-->
+        <header class="masthead text-white text-center"> <!--bg-primary-->
             <div class="container d-flex align-items-center flex-column">                                
                 <br/>
                 <div class="container">    
@@ -301,7 +303,7 @@
                 </div>
             </div>
         </section>
-        <!-- About Section-->
+        <!-- Quem Somos -->
         <section class="page-section bg-primary text-white mb-0" id="apresentacao">
             <div class="container">
                 <!-- About Section Heading-->
@@ -326,7 +328,31 @@
                                 </div>-->
             </div>
         </section>
-        <!-- Contact Section-->
+        <!-- Trabalhe Conosco -->
+        <section class="page-section bg-danger text-white mb-0" id="trabalheconosco">
+            <div class="container">
+                <!-- About Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-white">Trabalhe Conosco</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- About Section Content-->
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 ms-auto text-center"><p class="lead">Acesse nosso portal e veja as vagas dísponiveis para você!</p></div>
+                    <!--<div class="col-lg-4 me-auto"><p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p></div>-->
+                </div>                
+                <div class="text-center mt-4">
+                    <a class="btn btn-xl btn-outline-light" href="../portaltrevo/login.php" target="_blank">
+                        <i class="fas fa-bars me-2"></i>
+                        Vagas Dísponiveis
+                    </a>
+                </div>
+            </div>
+        </section>       
+        <!-- Contate-nos -->
         <section class="page-section" id="contato">
             <div class="container">
                 <!-- Contact Section Heading-->
@@ -498,7 +524,7 @@
                     </div>                    
                     <!-- Footer Social Icons-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Nossas Redes Sociais</h4>
+                        <h4 class="text-uppercase mb-4">Nossas Redes Sociais</h4>                       
                         <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/trevosupermercados" target="_blank"><i class="fab fa-fw fa-facebook-f"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/trevosupermercados/?fbclid=IwAR2KUD_ygyJlFc54CCac_XCoZaEqS-6wAYrq3Arj29keiDdmsom8ZN_gU3M" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!" target="_blank"><i class="fab fa-fw fa-twitter"></i></a>
@@ -509,11 +535,7 @@
                         <br/>
                         <a href="https://chat.whatsapp.com/LZuhmr8MWNj36Rz3yRyxia" target="_blank">Entre no Grupo Oficial do WhatsApp e receba ofertas exclusivas!</a>   
                         <br/>
-                        <br/>
-                        <a href="https://open.spotify.com/playlist/3eGZtSL1qM925juTShDbmV?si=b6c750d555f64f04" target="_blank">Tem frevo no Trevo! Ouça agora nossa playlist</a>   
-                        <br/>
-                        <br/>
-                        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3eGZtSL1qM925juTShDbmV?utm_source=generator" width="100%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                        <br/>                        
                     </div> 
 
                     <!-- Footer Oportunidades Text-->
@@ -527,11 +549,17 @@
                                         </div>                     -->
                     <!-- Footer Trabalhe Conosco Text-->
                     <div class="col-lg-4 mb-5 mb-lg-0"> 
-                        <h4 class="text-uppercase mb-4">Trabalhe Conosco</h4>
-                        <p class="lead mb-0">                            
-                            Faça seu cadastro e fique atento as vagas
-                            <a href=" ../PortalRH/Login.php" target="_blank">Acesse e realise seu cadastro</a>                            
-                        </p>
+                        <!--                        <h4 class="text-uppercase mb-4">Trabalhe Conosco</h4>
+                                                <p class="lead mb-0">                            
+                                                    Faça seu cadastro e fique atento as vagas
+                                                    <a href="../PortalRH/Login.php" target="_blank">Acesse e realise seu cadastro</a>                            
+                                                </p>-->
+                        <h4 class="text-uppercase mb-4">Nossa Play Liste</h4>
+                        <br/>
+                        <a href="https://open.spotify.com/playlist/3eGZtSL1qM925juTShDbmV?si=b6c750d555f64f04" target="_blank">Tem frevo no Trevo! Ouça agora nossa playlist</a>   
+                        <br/>
+                        <br/>
+                        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3eGZtSL1qM925juTShDbmV?utm_source=generator" width="100%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                     </div>   
                 </div>
             </div>            
